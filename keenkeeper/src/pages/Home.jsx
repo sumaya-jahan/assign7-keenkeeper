@@ -10,17 +10,17 @@ const Home = () => {
 
     useEffect(() => {
 
-        fetch("/src/data/friends.json")
+        fetch("/friends.json")
             .then(res => res.json())
             .then(data => {
                 setFriends(data);
                 setLoading(false);
-            })
+            });
 
     }, []);
 
     if (loading) {
-        return <Loading />
+        return <Loading />;
     }
 
     return (

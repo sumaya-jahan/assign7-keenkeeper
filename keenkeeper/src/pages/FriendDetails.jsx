@@ -1,11 +1,34 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const FriendDetails = () => {
 
     const { id } = useParams();
 
     const [friend, setFriend] = useState(null);
+
+    const handleInteraction = (type) => {
+
+        const newEntry = {
+            id: Date.now(),
+            type: type,
+            title: `${type} with ${friend.name}`,
+            date: new Date().toLocaleDateString(),
+        };
+
+        const existingTimeline =
+            JSON.parse(localStorage.getItem("timeline")) || [];
+
+        existingTimeline.push(newEntry);
+
+        localStorage.setItem(
+            "timeline",
+            JSON.stringify(existingTimeline)
+        );
+
+        toast.success(`${type} added to timeline`);
+    };
 
     useEffect(() => {
 
@@ -14,7 +37,7 @@ const FriendDetails = () => {
             .then(data => {
 
                 const foundFriend = data.find(
-                    friend => friend.id == id
+                    friend => String(friend.id) === String(id)
                 );
 
                 setFriend(foundFriend);
@@ -25,10 +48,10 @@ const FriendDetails = () => {
 
     if (!friend) {
         return (
-            <div className="text-center py-20">
+            <div className="text-center py-20 text-3xl font-bold">
                 Loading...
             </div>
-        )
+        );
     }
 
     const {
@@ -66,11 +89,11 @@ const FriendDetails = () => {
 
                         <span
                             className={`
-                px-4 py-2 rounded-full text-white
-                ${status === "overdue" && "bg-red-500"}
-                ${status === "almost due" && "bg-yellow-500"}
-                ${status === "on-track" && "bg-green-500"}
-              `}
+                                px-4 py-2 rounded-full text-white
+                                ${status === "overdue" ? "bg-red-500" : ""}
+                                ${status === "almost due" ? "bg-yellow-500" : ""}
+                                ${status === "on-track" ? "bg-green-500" : ""}
+                            `}
                         >
                             {status}
                         </span>
@@ -198,15 +221,24 @@ const FriendDetails = () => {
 
                         <div className="flex flex-wrap gap-4">
 
-                            <button className="btn btn-success">
+                            <button
+                                onClick={() => handleInteraction("Call")}
+                                className="btn btn-success"
+                            >
                                 📞 Call
                             </button>
 
-                            <button className="btn btn-primary">
+                            <button
+                                onClick={() => handleInteraction("Text")}
+                                className="btn btn-primary"
+                            >
                                 💬 Text
                             </button>
 
-                            <button className="btn btn-secondary">
+                            <button
+                                onClick={() => handleInteraction("Video")}
+                                className="btn btn-secondary"
+                            >
                                 🎥 Video
                             </button>
 

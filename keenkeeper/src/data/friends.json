@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "name": "Alex Johnson",
+        "picture": "https://i.pravatar.cc/300?img=12",
+        "email": "alex@example.com",
+        "days_since_contact": 12,
+        "status": "overdue",
+        "tags": [
+            "college",
+            "close friend"
+        ],
+        "bio": "Met in university. Loves hiking and coffee chats.",
+        "goal": 14,
+        "next_due_date": "2026-06-10"
+    },
+    {
+        "id": 2,
+        "name": "Sarah Miller",
+        "picture": "https://i.pravatar.cc/300?img=32",
+        "email": "sarah@example.com",
+        "days_since_contact": 5,
+        "status": "on-track",
+        "tags": [
+            "work",
+            "designer"
+        ],
+        "bio": "Worked together at a startup company.",
+        "goal": 10,
+        "next_due_date": "2026-06-18"
+    },
+    {
+        "id": 3,
+        "name": "David Lee",
+        "picture": "https://i.pravatar.cc/300?img=15",
+        "email": "david@example.com",
+        "days_since_contact": 9,
+        "status": "almost due",
+        "tags": [
+            "gym",
+            "travel"
+        ],
+        "bio": "Travel buddy and fitness partner.",
+        "goal": 10,
+        "next_due_date": "2026-06-14"
+    },
+    {
+        "id": 4,
+        "name": "Emily Clark",
+        "picture": "https://i.pravatar.cc/300?img=20",
+        "email": "emily@example.com",
+        "days_since_contact": 20,
+        "status": "overdue",
+        "tags": [
+            "school",
+            "best friend"
+        ],
+        "bio": "School best friend since childhood.",
+        "goal": 15,
+        "next_due_date": "2026-06-05"
+    },
+    {
+        "id": 5,
+        "name": "Michael Brown",
+        "picture": "https://i.pravatar.cc/300?img=45",
+        "email": "michael@example.com",
+        "days_since_contact": 3,
+        "status": "on-track",
+        "tags": [
+            "football",
+            "neighbor"
+        ],
+        "bio": "Neighborhood football teammate.",
+        "goal": 7,
+        "next_due_date": "2026-06-20"
+    },
+    {
+        "id": 6,
+        "name": "Olivia Wilson",
+        "picture": "https://i.pravatar.cc/300?img=47",
+        "email": "olivia@example.com",
+        "days_since_contact": 11,
+        "status": "almost due",
+        "tags": [
+            "book club",
+            "writer"
+        ],
+        "bio": "Met through a local book club.",
+        "goal": 12,
+        "next_due_date": "2026-06-11"
+    }
+]

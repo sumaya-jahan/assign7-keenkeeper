@@ -1,14 +1,19 @@
 import { Outlet } from "react-router-dom";
 
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
 const MainLayout = () => {
     return (
         <div>
 
-            <h1>KeenKeeper Navbar</h1>
+            <Navbar />
 
-            <Outlet />
+            <div className="min-h-screen">
+                <Outlet />
+            </div>
 
-            <h1>Footer</h1>
+            <Footer />
 
         </div>
     );

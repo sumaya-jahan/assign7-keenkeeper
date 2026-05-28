@@ -1,6 +1,6 @@
 const FriendDetails = () => {
     return (
-        <div>
+        <div className="p-10 text-3xl font-bold">
             Friend Details Page
         </div>
     );

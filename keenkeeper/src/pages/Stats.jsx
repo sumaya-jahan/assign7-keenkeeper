@@ -1,6 +1,6 @@
 const Stats = () => {
     return (
-        <div>
+        <div className="p-10 text-3xl font-bold">
             Stats Page
         </div>
     );

@@ -8,6 +8,10 @@ const Footer = () => {
                     KeenKeeper
                 </h1>
 
+                <p className="mt-3">
+                    Keep your friendships alive
+                </p>
+
             </div>
 
         </div>

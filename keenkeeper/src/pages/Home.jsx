@@ -8,6 +8,9 @@ const Home = () => {
     const [friends, setFriends] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const [searchText, setSearchText] = useState("");
+    const [statusFilter, setStatusFilter] = useState("all");
+
     useEffect(() => {
 
         fetch("/friends.json")
@@ -23,8 +26,25 @@ const Home = () => {
         return <Loading />;
     }
 
+    const filteredFriends = friends.filter(friend => {
+
+        const matchesSearch =
+            friend.name
+                .toLowerCase()
+                .includes(searchText.toLowerCase());
+
+        const matchesStatus =
+            statusFilter === "all"
+                ? true
+                : friend.status === statusFilter;
+
+        return matchesSearch && matchesStatus;
+    });
+
     return (
         <div className="max-w-7xl mx-auto px-4 py-10">
+
+            {/* HERO */}
 
             <div className="text-center mb-14">
 
@@ -38,10 +58,49 @@ const Home = () => {
 
             </div>
 
+            {/* SEARCH + FILTER */}
+
+            <div className="flex flex-col md:flex-row gap-4 justify-between mb-10">
+
+                <input
+                    type="text"
+                    placeholder="Search friend..."
+                    value={searchText}
+                    onChange={(e) => setSearchText(e.target.value)}
+                    className="input input-bordered w-full md:w-1/2"
+                />
+
+                <select
+                    value={statusFilter}
+                    onChange={(e) => setStatusFilter(e.target.value)}
+                    className="select select-bordered w-full md:w-60"
+                >
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="overdue">
+                        Overdue
+                    </option>
+
+                    <option value="on-track">
+                        On Track
+                    </option>
+
+                    <option value="almost due">
+                        Almost Due
+                    </option>
+
+                </select>
+
+            </div>
+
+            {/* FRIENDS */}
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
                 {
-                    friends.map(friend => (
+                    filteredFriends.map(friend => (
                         <FriendCard
                             key={friend.id}
                             friend={friend}

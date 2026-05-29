@@ -2,50 +2,48 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <div className="bg-white shadow-md">
+        <div className="navbar bg-white shadow-md px-6">
 
-            <div className="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
-
-                <h1 className="text-3xl font-bold text-green-700">
+            <div className="flex-1">
+                <h1 className="text-2xl font-bold text-green-700">
                     KeenKeeper
                 </h1>
+            </div>
 
-                <div className="flex gap-6 text-lg">
+            <div className="flex gap-6">
 
-                    <NavLink
-                        to="/"
-                        className={({ isActive }) =>
-                            isActive
-                                ? "text-green-700 font-bold"
-                                : ""
-                        }
-                    >
-                        Home
-                    </NavLink>
+                <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                        isActive
+                            ? "text-green-700 font-bold"
+                            : "text-gray-700"
+                    }
+                >
+                    Home
+                </NavLink>
 
-                    <NavLink
-                        to="/timeline"
-                        className={({ isActive }) =>
-                            isActive
-                                ? "text-green-700 font-bold"
-                                : ""
-                        }
-                    >
-                        Timeline
-                    </NavLink>
+                <NavLink
+                    to="/timeline"
+                    className={({ isActive }) =>
+                        isActive
+                            ? "text-green-700 font-bold"
+                            : "text-gray-700"
+                    }
+                >
+                    Timeline
+                </NavLink>
 
-                    <NavLink
-                        to="/stats"
-                        className={({ isActive }) =>
-                            isActive
-                                ? "text-green-700 font-bold"
-                                : ""
-                        }
-                    >
-                        Stats
-                    </NavLink>
-
-                </div>
+                <NavLink
+                    to="/stats"
+                    className={({ isActive }) =>
+                        isActive
+                            ? "text-green-700 font-bold"
+                            : "text-gray-700"
+                    }
+                >
+                    Stats
+                </NavLink>
 
             </div>
 
